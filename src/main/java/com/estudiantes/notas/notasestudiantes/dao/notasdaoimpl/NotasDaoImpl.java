@@ -1,4 +1,4 @@
-package com.estudiantes.notas.notasestudiantes.dao.notasDaoImpl;
+package com.estudiantes.notas.notasestudiantes.dao.notasdaoimpl;
 
 import com.estudiantes.notas.notasestudiantes.dao.INotasDao;
 import com.estudiantes.notas.notasestudiantes.data.NotasData;
@@ -27,7 +27,7 @@ public class NotasDaoImpl implements INotasDao {
     @Override
     public boolean delNota(int idCedula, int idMateria) {
         List<NotasModel> listado = NotasData.getListado();
-        listado.remove(new NotasModel(idCedula,idMateria));
+        listado.remove(new NotasModel(idCedula, idMateria));
         NotasData.setListado(listado);
         return true;
     }

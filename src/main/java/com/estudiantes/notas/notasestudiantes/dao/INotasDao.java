@@ -7,6 +7,8 @@ import java.util.List;
 public interface INotasDao {
 
     List<NotasModel> getNotas();
+
     NotasModel addNota(NotasModel notasModel);
-    boolean delNota(int idCedula,int idMateria);
+
+    boolean delNota(int idCedula, int idMateria);
 }

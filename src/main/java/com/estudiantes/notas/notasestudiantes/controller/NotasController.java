@@ -13,8 +13,12 @@ import java.util.List;
 @Api(value = "Backend de Notas y Estudiantes")
 public class NotasController {
 
-    @Autowired
     INotasService service;
+
+    @Autowired
+    public NotasController(INotasService service) {
+        this.service = service;
+    }
 
     @GetMapping("/notas")
     @ApiOperation("Devuelve todas las notas registradas")
@@ -36,13 +40,13 @@ public class NotasController {
 
     @PostMapping("/notaDefinitiva")
     @ApiOperation("Obtiene la nota definitiva segun idCedula y idMateria")
-    public String getDefinitiva(@RequestBody NotasModel notasModel){
+    public String getDefinitiva(@RequestBody NotasModel notasModel) {
         return service.getNotaF(notasModel);
     }
 
     @GetMapping("/notaAlta")
     @ApiOperation("Obtiene la nota mas alta")
-    public String getNotaA(){
+    public String getNotaA() {
         return service.getNotaA();
     }
 

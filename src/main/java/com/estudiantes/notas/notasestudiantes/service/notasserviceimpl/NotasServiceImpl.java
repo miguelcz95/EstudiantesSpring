@@ -1,4 +1,4 @@
-package com.estudiantes.notas.notasestudiantes.service.notasServiceImpl;
+package com.estudiantes.notas.notasestudiantes.service.notasserviceimpl;
 
 import com.estudiantes.notas.notasestudiantes.dao.INotasDao;
 import com.estudiantes.notas.notasestudiantes.model.NotasModel;
@@ -11,8 +11,12 @@ import java.util.List;
 @Service
 public class NotasServiceImpl implements INotasService {
 
-    @Autowired
     INotasDao dao;
+
+    @Autowired
+    public NotasServiceImpl(INotasDao dao) {
+        this.dao = dao;
+    }
 
     @Override
     public List<NotasModel> getNotas() {
@@ -42,7 +46,7 @@ public class NotasServiceImpl implements INotasService {
 
     @Override
     public String delNota(int idCedula, int idMateria) {
-        if (dao.delNota(idCedula, idMateria) == true) {
+        if (dao.delNota(idCedula, idMateria)) {
             return "Se elimino correctamente";
         }
         return "No se elimino la nota";
